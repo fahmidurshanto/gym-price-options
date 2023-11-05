@@ -6,8 +6,9 @@ import {
   BarChart,
   Bar,
   Tooltip,
+  Treemap,
 } from "recharts";
-const LineChart = () => {
+const Charts = () => {
   const studentsData = [
     {
       id: 1,
@@ -106,7 +107,7 @@ const LineChart = () => {
         <BarChart
           className="mx-auto"
           width={800}
-          height={400}
+          height={300}
           data={studentsData}
         >
           <XAxis dataKey="student" />
@@ -116,8 +117,27 @@ const LineChart = () => {
           <Bar dataKey={`physics_mark`} fill="yellowgreen"></Bar>
         </BarChart>
       </div>
+      {/* Treemap chart */}
+      <div className="p-5 my-12">
+        <h3 className="text-3xl text-center">
+          TreeMap of students physics marks
+        </h3>
+        <div></div>
+        <Treemap
+          className="mx-auto pt-5"
+          width={730}
+          height={250}
+          data={studentsData}
+          dataKey="physics_mark"
+          aspectRatio={4 / 3}
+          stroke="#fff"
+          fill="#8884d8"
+        >
+          <Tooltip></Tooltip>
+        </Treemap>
+      </div>
     </div>
   );
 };
 
-export default LineChart;
+export default Charts;
